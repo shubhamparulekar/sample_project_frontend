@@ -16,37 +16,41 @@
 <body class="bg-slate-50">
 
   <!-- Header -->
-  <header class="bg-white shadow-sm border-b">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-      <div class="flex items-center space-x-3">
-          <i class="fa-solid fa-book text-black"></i>
-        <div>
-          <h1 class="text-2xl font-bold text-gray-900">PaperSnap</h1>
-          <p class="text-sm text-gray-600">AI-powered research paper analysis</p>
-        </div>
+<header class="bg-white shadow-sm border-b fixed top-0 w-full z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+    <div class="flex items-center space-x-3">
+      <i class="fa-solid fa-book text-black"></i>
+      <div>
+        <h1 class="text-2xl font-bold text-gray-900"><a href="#hero">PaperSnap</a></h1>
+        <p class="text-sm text-gray-600">AI-powered research paper analysis</p>
       </div>
-      <nav class="hidden md:flex space-x-8">
-        <a href="#features" class="text-gray-700 hover:text-blue-600 font-medium">Features</a>
-        <a href="#methodology" class="text-gray-700 hover:text-blue-600 font-medium">Methodology</a>
-        <a href="#data" class="text-gray-700 hover:text-blue-600 font-medium">Data</a>
-      </nav>
     </div>
-  </header>
+    <nav class="hidden md:flex space-x-8">
+      <a href="#features" class="text-gray-700 hover:text-blue-600 font-medium">Features</a>
+      <a href="#methodology" class="text-gray-700 hover:text-blue-600 font-medium">Methodology</a>
+      <a href="#data" class="text-gray-700 hover:text-blue-600 font-medium">Data</a>
+    </nav>
+  </div>
+</header>
 
-  <!-- Hero Section -->
-  <section class="py-20 px-4 sm:px-6 lg:px-8 text-center">
-    <h2 class="text-5xl font-bold text-gray-900 mb-6">
-      Transform Research Papers into Clear Insights
-    </h2>
-    <p class="text-xl text-gray-600 mb-8 leading-relaxed">
-      Reading research papers should feel like learning, not deciphering dense prose.
-      PaperSnap turns complex academic papers into digestible summaries, plain-language explanations, and organized knowledge.
-    </p>
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <button class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold text-lg transition-colors"><a href="home.html">Try PaperSnap</button>
-      <!-- <button class="border-2 border-gray-300 hover:border-gray-400 text-gray-700 px-8 py-3 rounded-lg font-semibold text-lg transition-colors">View Demo</button> -->
-    </div>
-  </section>
+
+<!-- Hero Section -->
+<section id="hero" class="pt-32 sm:pt-36 lg:pt-40 pb-20 px-4 sm:px-6 lg:px-8 text-center">
+  <h2 class="text-5xl font-bold text-gray-900 mb-6">
+    Transform Research Papers into Clear Insights
+  </h2>
+  <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+    Reading research papers should feel like learning, not deciphering dense prose.
+    PaperSnap turns complex academic papers into digestible summaries, plain-language explanations, and organized knowledge.
+  </p>
+  <div class="flex flex-col sm:flex-row gap-4 justify-center">
+    <button class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold text-lg transition-colors">
+      <a href="home.html">Try PaperSnap</a>
+    </button>
+  </div>
+</section>
+
+
 
   <!-- Features Section -->
   <section id="features" class="py-16 bg-white">
@@ -59,30 +63,38 @@
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-        <div class="bg-blue-50 p-6 rounded-xl border border-blue-100 hover:shadow-md transition-shadow">
-          <!-- <div class="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-            <i class="fa-solid fa-file-lines text-blue-600 h-6 w-6"></i>
-          </div> -->
+        <!-- <div class="bg-blue-50 p-6 rounded-xl border border-blue-100 hover:shadow-md transition-shadow"> -->
+          <div class="flex-1 bg-blue-50 p-6 rounded-2xl border border-blue-100 shadow hover:shadow-lg transition-shadow text-center">
+      <div class="bg-blue-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+        <i class="fa-solid fa-file-lines text-blue-600 text-2xl"></i>
+      </div>
           <h4 class="text-lg font-semibold text-gray-900 mb-2">Smart Summarization</h4>
           <p class="text-gray-600">Transformer-based summaries that capture key insights.</p>
         </div>
 
-        <div class="bg-green-50 p-6 rounded-xl border border-green-100 hover:shadow-md transition-shadow">
-          <!-- <div class="bg-green-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-            <i class="fa-solid fa-bolt text-green-600 h-6 w-6"></i>
-          </div> -->
+        <!-- <div class="bg-green-50 p-6 rounded-xl border border-green-100 hover:shadow-md transition-shadow"> -->
+          <div class="flex-1 bg-green-50 p-6 rounded-2xl border border-green-100 shadow hover:shadow-lg transition-shadow text-center">
+      <div class="bg-green-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+        <i class="fa-solid fa-bolt text-green-600 text-2xl"></i>
+      </div>
           <h4 class="text-lg font-semibold text-gray-900 mb-2">ELI5 Simplification</h4>
           <p class="text-gray-600">Plain-language explanations for complex concepts.</p>
         </div>
 
-        <div class="bg-purple-50 p-6 rounded-xl border border-purple-100 hover:shadow-md transition-shadow">
-          <!-- <div class="bg-purple-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-            <i class="fa-solid fa-tag text-purple-600 h-6 w-6"></i> -->
+        <!-- <div class="bg-purple-50 p-6 rounded-xl border border-purple-100 hover:shadow-md transition-shadow"> -->
+          <div class="flex-1 bg-purple-50 p-6 rounded-2xl border border-purple-100 shadow hover:shadow-lg transition-shadow text-center">
+          <div class="bg-purple-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+        <i class="fa-solid fa-tag text-purple-600 text-2xl"></i>
+      </div>
           <h4 class="text-lg font-semibold text-gray-900 mb-2">Auto Glossary</h4>
           <p class="text-gray-600">Extract key terms with context-grounded definitions.</p>
         </div>
 
-        <div class="bg-orange-50 p-6 rounded-xl border border-orange-100 hover:shadow-md transition-shadow">
+        <!-- <div class="bg-orange-50 p-6 rounded-xl border border-orange-100 hover:shadow-md transition-shadow"> -->
+          <div class="flex-1 bg-yellow-50 p-6 rounded-2xl border border-yellow-100 shadow hover:shadow-lg transition-shadow text-center">
+      <div class="bg-yellow-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+        <i class="fa-solid fa-users text-yellow-600 text-2xl"></i>
+      </div>
           <!-- <div class="bg-orange-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
             <i class="fa-solid fa-users text-orange-600 h-6 w-6"></i>
           </div> -->
@@ -94,6 +106,105 @@
     </div>
   </section>
 
+<section id="methodology" class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+  <div class="max-w-7xl mx-auto text-center mb-12">
+    <h2 class="text-3xl font-bold text-gray-900 mb-4">Methodology</h2>
+    <p class="text-gray-600 max-w-3xl mx-auto">
+      From PDF download to NLP analysis and organization, PaperSnap transforms research papers into clear insights.
+    </p>
+  </div>
+
+  <!-- Horizontal flow -->
+  <div class="relative flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-4">
+    <!-- Step 1 -->
+    <div class="flex-1 bg-blue-50 p-6 rounded-2xl border border-blue-100 shadow hover:shadow-lg transition-shadow text-center">
+      <div class="bg-blue-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+        <i class="fa-solid fa-file-pdf text-blue-600 text-2xl"></i>
+      </div>
+      <h3 class="text-lg font-semibold text-gray-900 mb-2">Download & Extract</h3>
+      <p class="text-gray-600 text-sm">
+        Bulk download PDFs from arXiv and extract metadata: title, authors, content, references.
+      </p>
+    </div>
+
+    <!-- Animated Arrow -->
+    <div class="hidden md:flex items-center ">
+      <i class="fa-solid fa-arrow-right text-gray-400 text-2xl"></i>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="flex-1 bg-green-50 p-6 rounded-2xl border border-green-100 shadow hover:shadow-lg transition-shadow text-center">
+      <div class="bg-green-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+        <i class="fa-solid fa-brush text-green-600 text-2xl"></i>
+      </div>
+      <h3 class="text-lg font-semibold text-gray-900 mb-2">Preprocessing</h3>
+      <p class="text-gray-600 text-sm">
+        Convert PDFs to text, clean content, segment sections, paragraphs, and sentences, tokenize words.
+      </p>
+    </div>
+
+    <!-- Animated Arrow -->
+    <div class="hidden md:flex items-center">
+      <i class="fa-solid fa-arrow-right text-gray-400 text-2xl"></i>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="flex-1 bg-yellow-50 p-6 rounded-2xl border border-yellow-100 shadow hover:shadow-lg transition-shadow text-center">
+      <div class="bg-yellow-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+        <i class="fa-solid fa-brain text-yellow-600 text-2xl"></i>
+      </div>
+      <h3 class="text-lg font-semibold text-gray-900 mb-2">Analysis & NLP</h3>
+      <p class="text-gray-600 text-sm">
+        Generate summaries, ELI5 simplifications, glossary terms, and features for classification/clustering.
+      </p>
+    </div>
+
+    <!-- Animated Arrow -->
+    <div class="hidden md:flex items-center ">
+      <i class="fa-solid fa-arrow-right text-gray-400 text-2xl"></i>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="flex-1 bg-purple-50 p-6 rounded-2xl border border-purple-100 shadow hover:shadow-lg transition-shadow text-center">
+      <div class="bg-purple-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+        <i class="fa-solid fa-network-wired text-purple-600 text-2xl"></i>
+      </div>
+      <h3 class="text-lg font-semibold text-gray-900 mb-2">Organize & Evaluate</h3>
+      <p class="text-gray-600 text-sm">
+        Cluster similar papers, classify by topic, and evaluate summaries, simplifications, glossary, and classification.
+      </p>
+    </div>
+  </div>
+
+  <!-- Mobile vertical arrows -->
+  <!-- <div class="md:hidden flex flex-col items-center mt-8 space-y-20"> -->
+    <!-- <i class="fa-solid fa-arrow-down text-gray-400 text-2xl animate-bounce"></i>
+    <i class="fa-solid fa-arrow-down text-gray-400 text-2xl animate-bounce delay-200"></i>
+    <i class="fa-solid fa-arrow-down text-gray-400 text-2xl animate-bounce delay-400"></i> -->
+  </div>
+</section>
+
+<section id="data" class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+  <div class="max-w-7xl mx-auto text-center mb-12">
+    <h2 class="text-3xl font-bold text-gray-900 mb-4">Dataset</h2>
+<p class="text-gray-600 max-w mx-auto">
+  For this project, we use the arXiv dataset focusing on Computer Science and Artificial Intelligence papers. 
+  It includes metadata such as titles, authors, abstracts, and PDF links, which we leverage for automated 
+  summarization, simplification, glossary extraction, and paper organization. 
+  The dataset is available via <a href="https://huggingface.co/datasets/Cornell-University/arxiv" 
+  class="text-blue-600 hover:text-blue-800 underline" target="_blank">Hugging Face</a>.
+</p>
+
+  </div>
+  <!-- <div class="max-w-7xl mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="dataset-cards"> -->
+  <iframe
+    src="https://huggingface.co/datasets/ashish-chouhan/arxiv_cs_papers/embed/viewer/default/train"
+    frameborder="0"
+    width="100%"
+    height="560px"
+  ></iframe>
+  </section>
+  
   <!-- Footer -->
   <footer class="bg-gray-900 text-white py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -113,7 +224,7 @@
   <!-- Initialize Lucide -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      lucide.createIcons(); // <--- this is the correct method in latest Lucide
+      lucide.createIcons(); // 
     });
   </script>
 
