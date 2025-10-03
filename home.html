@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PaperSnap</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+  >
+</head>
+<body class="bg-gradient-to-br from-slate-50 to-blue-50">
+
+  <!-- Header -->
+  <header class="bg-white shadow-sm border-b">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+          <i class="fa-solid fa-book text-black"></i>
+        <div>
+          <h1 class="text-2xl font-bold text-gray-900">PaperSnap</h1>
+          <p class="text-sm text-gray-600">AI-powered research paper analysis</p>
+        </div>
+      </div>
+      <nav class="hidden md:flex space-x-8">
+        <a href="#features" class="text-gray-700 hover:text-blue-600 font-medium">Features</a>
+        <a href="#methodology" class="text-gray-700 hover:text-blue-600 font-medium">Methodology</a>
+        <a href="#data" class="text-gray-700 hover:text-blue-600 font-medium">Data</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Input Section -->
+  <section class="py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-white rounded-2xl shadow-lg p-8">
+        <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">Analyze Your Research Paper</h2>
+
+        <!-- Input Method Toggle -->
+        <div class="flex space-x-4 mb-6">
+          <button id="link-btn" class="flex-1 flex items-center justify-center space-x-2 py-3 px-4 rounded-lg font-medium bg-blue-600 text-white">
+            <i class="fa-solid fa-link"></i>
+            <span>Paste Link</span>
+          </button>
+          <button id="upload-btn" class="flex-1 flex items-center justify-center space-x-2 py-3 px-4 rounded-lg font-medium bg-gray-100 text-gray-700 hover:bg-gray-200">
+            <i class="fa-solid fa-upload"></i>
+            <span>Upload PDF</span>
+          </button>
+        </div>
+
+        <!-- Input Fields -->
+        <div id="link-input" class="space-y-4">
+          <label class="block text-sm font-medium text-gray-700">Paper URL</label>
+          <input
+            type="url"
+            value="https://arxiv.org/html/2509.15292v1"
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          />
+        </div>
+
+        <div id="upload-input" class="space-y-4 hidden">
+          <label class="block text-sm font-medium text-gray-700">Upload PDF</label>
+          <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-gray-400 transition-colors">
+            <input type="file" accept=".pdf" id="pdf-upload" class="hidden" />
+            <label for="pdf-upload" class="cursor-pointer">
+              <i class="fa-solid fa-upload text-gray-400 h-12 w-12 mx-auto mb-2"></i>
+              <p class="text-gray-600" id="file-name">Click to upload or drag and drop</p>
+              <p class="text-sm text-gray-500 mt-1">PDF files only</p>
+            </label>
+          </div>
+        </div>
+
+        <!-- Process Button -->
+        <button
+          id="process-btn"
+          class="w-full mt-6 bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-semibold text-lg transition-colors flex items-center justify-center space-x-2"
+        >
+          <i class="fa-solid fa-brain"></i>
+          <span>Analyze Paper</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results Section -->
+  <section id="results" class="py-12 px-4 sm:px-6 lg:px-8 hidden">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-8">
+        <!-- Smart Summarization -->
+        <div class="bg-white rounded-2xl shadow-lg p-6">
+          <div class="flex items-center space-x-3 mb-4">
+            <div class="bg-blue-100 p-2 rounded-lg">
+              <i class="fa-solid fa-file-lines text-blue-600 h-5 w-5"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900">Smart Summarization</h3>
+          </div>
+          <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+            <p class="text-gray-700 leading-relaxed" id="summary"></p>
+          </div>
+        </div>
+
+        <!-- ELI5 Simplification -->
+        <div class="bg-white rounded-2xl shadow-lg p-6">
+          <div class="flex items-center space-x-3 mb-4">
+            <div class="bg-green-100 p-2 rounded-lg">
+              <i class="fa-solid fa-bolt text-green-600 h-5 w-5"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900">ELI5 Simplification</h3>
+          </div>
+          <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+            <p class="text-gray-700 leading-relaxed" id="simplification"></p>
+          </div>
+        </div>
+
+        <!-- Auto Glossary -->
+        <div class="bg-white rounded-2xl shadow-lg p-6">
+          <div class="flex items-center space-x-3 mb-4">
+            <div class="bg-purple-100 p-2 rounded-lg">
+              <i class="fa-solid fa-tag text-purple-600 h-5 w-5"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900">Auto Glossary</h3>
+          </div>
+          <div class="space-y-3" id="glossary"></div>
+        </div>
+
+        <!-- Paper Organization -->
+        <div class="bg-white rounded-2xl shadow-lg p-6">
+          <div class="flex items-center space-x-3 mb-4">
+            <div class="bg-orange-100 p-2 rounded-lg">
+              <i class="fa-solid fa-users text-orange-600 h-5 w-5"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900">Paper Organization</h3>
+          </div>
+          <div class="space-y-4">
+            <div>
+              <h4 class="font-semibold text-gray-900 mb-2">Authors</h4>
+              <div class="flex flex-wrap gap-2" id="authors"></div>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900 mb-2">Subjects</h4>
+              <div class="flex flex-wrap gap-2" id="subjects"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="flex items-center justify-center mb-4">
+        <!-- Book icon -->
+        <i class="fa-solid fa-book text-white h-6 w-6"></i>
+        <!-- <i data-lucide="book-open" class="h-8 w-8 text-blue-400 mr-2"></i> -->
+        <span class="text-2xl font-bold">PaperSnap</span>
+      </div>
+      <p class="text-gray-400 mb-6">Making research accessible through AI-powered paper analysis</p>
+      <div class="border-t border-gray-800 pt-6">
+        <p class="text-gray-500 text-sm">© 2024 PaperSnap. Built with modern NLP and a passion for accessible science.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script for functionality -->
+  <script>
+    // Toggle input sections
+    const linkBtn = document.getElementById('link-btn');
+    const uploadBtn = document.getElementById('upload-btn');
+    const linkInput = document.getElementById('link-input');
+    const uploadInput = document.getElementById('upload-input');
+    const fileInput = document.getElementById('pdf-upload');
+    const fileName = document.getElementById('file-name');
+    const processBtn = document.getElementById('process-btn');
+
+    linkBtn.addEventListener('click', () => {
+      linkInput.classList.remove('hidden');
+      uploadInput.classList.add('hidden');
+      linkBtn.classList.add('bg-blue-600','text-white');
+      linkBtn.classList.remove('bg-gray-100','text-gray-700');
+      uploadBtn.classList.add('bg-gray-100','text-gray-700');
+      uploadBtn.classList.remove('bg-blue-600','text-white');
+    });
+
+    uploadBtn.addEventListener('click', () => {
+      uploadInput.classList.remove('hidden');
+      linkInput.classList.add('hidden');
+      uploadBtn.classList.add('bg-blue-600','text-white');
+      uploadBtn.classList.remove('bg-gray-100','text-gray-700');
+      linkBtn.classList.add('bg-gray-100','text-gray-700');
+      linkBtn.classList.remove('bg-blue-600','text-white');
+    });
+
+    fileInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      fileName.textContent = file ? file.name : 'Click to upload or drag and drop';
+    });
+
+    processBtn.addEventListener('click', () => {
+      processBtn.disabled = true;
+      processBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing...';
+
+      // Simulate processing
+      setTimeout(() => {
+        // Sample data
+        const sampleData = {
+          summary: "This paper proposes AutoLit, an automated pipeline for literature reviews using semantic similarity. The system takes a paper's title and abstract as input, generates relevant keywords, fetches papers from arXiv, and ranks them using transformer-based embeddings and cosine similarity.",
+          simplification: "Imagine you're trying to find all the research papers about a topic, but instead of reading hundreds of papers, a smart computer helper does it for you! It tested three different smart math methods and found that one called 'all-MiniLM' works best.",
+          glossary: [
+            { term: "Semantic Similarity", definition: "A measure of how similar two pieces of text are in meaning, not just in exact words." },
+            { term: "Transformer-based Embeddings", definition: "Mathematical representations of text created by advanced AI models." },
+            { term: "Cosine Similarity", definition: "A mathematical way to measure similarity." },
+            { term: "Systematic Literature Review (SLR)", definition: "A method for evaluating all available research on a topic." },
+            { term: "Statistical Thresholding", definition: "Using statistical methods to automatically filter data." }
+          ],
+          organization: {
+            authors: ["John Smith", "Jane Doe", "Alex Johnson"],
+            subjects: ["Computer Science", "Artificial Intelligence", "NLP", "Information Retrieval"]
+          }
+        };
+
+        // Fill results
+        document.getElementById('summary').textContent = sampleData.summary;
+        document.getElementById('simplification').textContent = sampleData.simplification;
+
+        const glossaryEl = document.getElementById('glossary');
+        glossaryEl.innerHTML = '';
+        sampleData.glossary.forEach(item => {
+          const div = document.createElement('div');
+          div.className = 'bg-gray-50 rounded-lg p-4 border border-gray-200';
+          div.innerHTML = `<h4 class="font-semibold text-gray-900 mb-1">${item.term}</h4>
+                           <p class="text-gray-700 text-sm">${item.definition}</p>`;
+          glossaryEl.appendChild(div);
+        });
+
+        const authorsEl = document.getElementById('authors');
+        authorsEl.innerHTML = '';
+        sampleData.organization.authors.forEach(author => {
+          const span = document.createElement('span');
+          span.className = 'bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium';
+          span.textContent = author;
+          authorsEl.appendChild(span);
+        });
+
+        const subjectsEl = document.getElementById('subjects');
+        subjectsEl.innerHTML = '';
+        sampleData.organization.subjects.forEach(sub => {
+          const span = document.createElement('span');
+          span.className = 'bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium';
+          span.textContent = sub;
+          subjectsEl.appendChild(span);
+        });
+
+        // Show results
+        document.getElementById('results').classList.remove('hidden');
+        processBtn.disabled = false;
+        processBtn.innerHTML = '<i class="fa-solid fa-brain"></i> Analyze Paper';
+      }, 1500);
+    });
+  </script>
+
+</body>
+</html>
